@@ -169,7 +169,7 @@ function calc() {
     case "/":
       result = prev / current;
       break;
-    case "*":
+    case "x":
       result = prev * current;
       break;
   }

@@ -100,9 +100,9 @@ span {
   text-align: center;
   height: 1.2rem;
   width: 1.2rem;
+  border-radius: 50%;
   appearance: none;
   background-color: hsl(6, 63%, 50%);
-  border-radius: 50%;
   opacity: 0;
 }
 
