@@ -1,0 +1,344 @@
+:root {
+  --main-background: hsl(222, 26%, 31%);
+  --keypad-background: hsl(223, 31%, 20%);
+  --screen-background: hsl(224, 36%, 15%);
+
+  --del-background: hsl(225, 21%, 49%);
+  --del-shadow: hsl(224, 28%, 35%);
+
+  --equal-background: hsl(6, 63%, 50%);
+  --equal-shadow: hsl(6, 70%, 34%);
+
+  --key-background: hsl(30, 25%, 89%);
+  --key-shadow: hsl(28, 16%, 65%);
+
+  --text-blue: hsl(221, 14%, 31%);
+  --White: hsl(0, 0%, 100%);
+
+  --mb-small: 1.7rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  overflow: hidden;
+}
+
+body {
+  background-color: var(--main-background);
+  font-family: "League Spartan", sans-serif;
+}
+
+.calculator {
+  max-width: fit-content;
+  margin: 5rem auto;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: var(--mb-small);
+}
+
+.calculator__theme {
+  color: var(--White);
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+}
+
+.calculator__theme--2 {
+  color: hsl(60, 10%, 19%);
+}
+.calculator__theme--3 {
+  color: hsl(52, 100%, 62%);
+}
+
+span,
+.labels {
+  color: var(--White);
+}
+
+.calc {
+  font-size: 2rem;
+}
+span {
+  margin-left: 23rem;
+}
+.three-state-toggle {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--screen-background);
+  border-radius: 5rem;
+  padding: 0.4rem 0.8rem;
+  position: relative;
+}
+
+.labels {
+  padding: 0 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: -1.9rem;
+  justify-self: end;
+}
+.span--theme-2,
+.labels--theme-2 {
+  color: hsl(60, 10%, 19%);
+}
+.labels--theme-3,
+.span--theme-3 {
+  color: hsl(52, 100%, 62%);
+}
+
+.theme-toggle-btn {
+  text-align: center;
+  height: 1.2rem;
+  width: 1.2rem;
+  appearance: none;
+  background-color: hsl(6, 63%, 50%);
+  border-radius: 50%;
+  opacity: 0;
+}
+
+.theme-toggle-btn:hover {
+  cursor: pointer;
+  background-color: hsl(11, 82%, 55%);
+}
+
+.theme-toggle-btn--2 {
+  background-color: hsl(25, 98%, 45%);
+}
+.theme-toggle-btn--2:hover {
+  background-color: hsl(25, 98%, 55%);
+}
+.theme-toggle-btn--2 {
+  background-color: hsl(25, 98%, 40%);
+}
+.theme-toggle-btn--3 {
+  background-color: hsl(176, 100%, 44%);
+}
+.theme-toggle-btn--3:hover {
+  background-color: hsl(176, 100%, 55%);
+}
+
+#one {
+  opacity: 1;
+}
+
+.screen {
+  margin: 0 auto;
+  width: 37rem;
+  height: 8rem;
+  color: #fff;
+  background-color: var(--screen-background);
+  border-radius: 0.6rem;
+}
+
+.screen--theme-2 {
+  background-color: hsl(0, 0%, 93%);
+  color: hsl(60, 10%, 19%);
+}
+.screen--theme-3 {
+  background-color: hsl(268, 71%, 12%);
+  color: hsl(52, 100%, 62%);
+}
+
+.previous-operand {
+  padding: 1rem 1rem;
+  font-size: 1.8rem;
+}
+.current-operand {
+  padding: 1rem 1rem;
+  font-size: 3.2rem;
+}
+.previous-operand,
+.current-operand {
+  /* color: #fff; */
+  height: fit-content;
+  text-align: end;
+}
+
+.keys {
+  margin: 0 auto;
+  background-color: var(--keypad-background);
+  padding: 2rem;
+  border-radius: 1rem;
+
+  display: grid;
+  /* grid-template-columns: repeat(4, 1fr); */
+  grid-template-columns: minmax(1fr, 1fr) repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+
+  row-gap: var(--mb-small);
+  column-gap: var(--mb-small);
+  align-items: center;
+}
+
+.keys--theme-2 {
+  background-color: hsl(0, 5%, 81%);
+}
+.keys--theme-3 {
+  background-color: hsl(268, 71%, 12%);
+}
+
+.btn,
+.btn--operation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  font-family: inherit;
+  font-size: 3rem;
+  width: 7rem;
+  height: 4rem;
+  border-radius: 1rem;
+  color: var(--text-blue);
+  background-color: var(--key-background);
+  box-shadow: 0 0.3rem var(--key-shadow);
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn--operation:hover {
+  background-color: var(--White);
+}
+
+.btn--theme-2,
+.btn--operation--theme-2 {
+  color: hsl(60, 10%, 19%);
+  background-color: hsl(45, 7%, 89%);
+  box-shadow: 0 0.3rem hsl(35, 11%, 61%);
+}
+
+.btn--theme-2:hover,
+.btn--operation--theme-2:hover {
+  background-color: var(--White);
+}
+
+.btn--theme-3,
+.btn--operation--theme-3 {
+  color: hsl(52, 100%, 62%);
+  background-color: hsl(268, 47%, 21%);
+  box-shadow: 0 0.3rem hsl(290, 70%, 36%);
+}
+
+.btn--theme-3:hover,
+.btn--operation--theme-3:hover {
+  background-color: hsl(268, 47%, 31%);
+}
+
+.btn:focus,
+.btn--operation:focus {
+  outline: none;
+}
+
+.btn-reset {
+  width: auto;
+  grid-column: 1/3;
+}
+
+.btn-del,
+.btn-reset {
+  font-size: 2.3rem;
+  background-color: var(--del-background);
+  box-shadow: 0 0.3rem var(--del-shadow);
+}
+
+.btn-del:hover,
+.btn-reset:hover {
+  background-color: hsl(224, 21%, 55%);
+}
+
+.btn-del--theme-2,
+.btn-reset--theme-2 {
+  background-color: hsl(185, 42%, 37%);
+  box-shadow: 0 0.3rem hsl(185, 58%, 25%);
+}
+
+.btn-del--theme-2:hover,
+.btn-reset--theme-2:hover {
+  background-color: hsl(186, 42%, 55%);
+}
+
+.btn-del--theme-3,
+.btn-reset--theme-3 {
+  background-color: hsl(281, 89%, 26%);
+  box-shadow: 0 0.3rem hsl(285, 91%, 52%);
+}
+
+.btn-del--theme-3:hover,
+.btn-reset--theme-3:hover {
+  background-color: hsl(281, 89%, 31%);
+}
+
+.btn-del,
+.btn-reset,
+.btn-equal {
+  color: var(--White);
+}
+
+.btn-equal {
+  width: auto;
+  grid-column: 3/5;
+  background-color: var(--equal-background);
+  box-shadow: 0 0.3rem var(--equal-shadow);
+}
+
+.btn-equal:hover {
+  background-color: hsl(11, 63%, 50%);
+}
+
+.btn-equal--theme-2 {
+  background-color: hsl(25, 98%, 40%);
+  box-shadow: 0 0.3rem hsl(25, 99%, 27%);
+}
+
+.btn-equal--theme-2:hover {
+  background-color: hsl(27, 98%, 50%);
+}
+.btn-equal--theme-3 {
+  background-color: hsl(176, 100%, 44%);
+  box-shadow: 0 0.3rem hsl(177, 92%, 70%);
+}
+
+.btn-equal--theme-3:hover {
+  background-color: hsl(176, 100%, 52%);
+}
+
+/* media */
+
+@media (max-width: 26.25em) {
+  .btn,
+  .btn--operation {
+    width: 6rem;
+    font-size: 2.9rem;
+  }
+
+  .btn-equal,
+  .btn-reset {
+    width: auto;
+    font-size: 2.9rem;
+  }
+  .screen {
+    width: 100%;
+  }
+  .calculator__theme {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0rem;
+    width: 100%;
+  }
+  span {
+    margin-left: 20rem;
+  }
+  .labels {
+    gap: 1rem;
+  }
+}
